@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+<form action="{% url 'imageprocessor:update' update.id %}" method="POST" enctype="multipart/form-data">
+    <!-- here -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button" type="submit">Update</button>
+</form>
+{% endblock %}
