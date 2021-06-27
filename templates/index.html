@@ -87,14 +87,18 @@
     <main class="main">
         <div class="container">
             {% block content %}
-            {% if image %}
-            {% for images in image %}
-            <img class="post-img" src="{{ images.profileURL }}">
-            <a href="{% url 'imageprocessor:update' images.id %}"> detail {{ images.id }} </a>
-            <img class="post-img" src="{{ images.backgroundURL }}">
-            <img class="post-img" src="{{ images.featureURL }}">
-            {% endfor %}
-            {% endif %}
+                {% if image %}
+                    {% for images in image %}
+                        <img class="post-img" src="{{ images.profileURL }}">
+                        <a href="{% url 'imageprocessor:update' images.id %}"> update image </a>
+                        <img class="post-img" src="{{ images.backgroundURL }}">
+                        <img class="post-img" src="{{ images.featureURL }}">
+                        <form action="{% url 'imageprocessor:delete_image' images.id %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <button class="button" type="submit">Delete</button>
+                        </form>
+                    {% endfor %}
+                {% endif %}
             {% endblock %}
         </div>
     </main>

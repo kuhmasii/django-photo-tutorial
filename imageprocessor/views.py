@@ -62,5 +62,13 @@ def update(request, image_id=None):
     )
 
 
+def delete_image(request, image_id=None):
+
+    image_to_delete = get_object_or_404(Image, pk=image_id)
+
+    if request.method == "POST":
+        image_to_delete.delete()
+        return redirect("imageprocessor:index")
+
 def success(request, *args, **kwargs):
     return render(request, 'success.html')
