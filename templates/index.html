@@ -89,24 +89,157 @@
             {% block content %}
                 {% if image %}
                     {% for images in image %}
-                        <img class="post-img" src="{{ images.profileURL }}">
-                        <a href="{% url 'imageprocessor:update' images.id %}"> update image </a>
-                        <img class="post-img" src="{{ images.backgroundURL }}">
-                        <img class="post-img" src="{{ images.featureURL }}">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="post-img" src="{{ images.profileURL }}"
+                                class="img-fluid hover-shadow" height="300" width="500">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="post-img" src="{{ images.backgroundURL }}"
+                                class="img-fluid hover-shadow" height="300" width="500">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="post-img" src="{{ images.featureURL }}"
+                                class="img-fluid hover-shadow" height="300" width="500">
+                            </div>
+                        </div>
+                        <br>
                         <form action="{% url 'imageprocessor:delete_image' images.id %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                             <button class="button" type="submit">Delete</button>
                         </form>
+
+
+                        <a href="{% url 'imageprocessor:update' images.id %}" class="btn btn-danger">update image</a>
+
                     {% endfor %}
                 {% endif %}
             {% endblock %}
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="text">
-            this is the footer
+    <footer class="footer text-muted text-center text-lg-start">
+          <section
+            class="d-flex justify-content-center justify-content-lg-between"
+          >
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+              <span>Get connected with us on social networks:</span>
+            </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer content. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Products
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">kuhmasii</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">kuhmasii</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">kuhmasii</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">kuhmasii</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Useful links
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Contact
+              </h6>
+              <p><i class="fas fa-home me-3"></i>UI, university of Ibadan</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                kuhmasii@gmail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> +234 804 444 4444</p>
+              <p><i class="fas fa-print me-3"></i> +234 803 333 3333</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: darkgray;">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">photo_tutorial.com</a>
+      </div>
+      <!-- Copyright -->
     </footer>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
